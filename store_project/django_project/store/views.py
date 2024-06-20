@@ -81,6 +81,7 @@ class MainPage(TemplateView):
 
 
 
+
 class UserRegisterView(FormView):
     template_name = 'store/product_form.html'
     form_class = UserRegistrationForm
@@ -100,7 +101,7 @@ class UserRegisterView(FormView):
                 return self.form_invalid(form)
 
     def form_valid(self, form):
-        return HttpResponse('New product has been added')
+        return HttpResponse('New user has been added')
 
 
 def login_view(request):
@@ -119,4 +120,4 @@ def login_view(request):
                 return HttpResponse('Invalid login')
     else:
         form = LoginForm()
-    return render(request, 'account/login.html', {'form': form})
+    return render(request, 'store/login.html', {'form': form})

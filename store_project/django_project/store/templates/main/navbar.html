@@ -15,10 +15,10 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'product_list' %}">Продукты</a>
-                        </li>                        
-                        <li class="nav-item">
                             <a class="nav-link" href="{% url 'main_page' %}">Главная страница</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'product_list' %}">Продукты</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-2" method="get" action="{% url 'search_form' %}">
@@ -52,7 +52,7 @@
     {% bootstrap_messages %}
     <h1>Welcome, {{ user.username|default:"Пользователь" }}</h1>
     <div class="content">
-        {{ request }}
+        <!--{{ request }}-->
         {% block content %}
         {% endblock %}
     </div>

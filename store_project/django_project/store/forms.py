@@ -9,7 +9,7 @@ class SearchForm(forms.Form):
 
 
 class ProductForm(ModelForm):
-    category = forms.CharField(label='Категория продукта')
+    category = forms.IntegerField(label='Категория продукта')
     expires = forms.IntegerField(label='Срок годности продукта')
     
 
@@ -20,12 +20,11 @@ class ProductForm(ModelForm):
 
 class UserRegistrationForm(forms.ModelForm):
     password1 = forms.CharField(label='Пароль', required=False, widget=forms.widgets.PasswordInput())
-    password2 = forms.CharField(label='Пароль (повторно)', initial='начальное значение', required=False)
-    regex_field = forms.RegexField(r'^U[a-zA-Z]{4}$')
-    is_client = forms.BooleanField()
+    password2 = forms.CharField(label='Пароль (повторно)', required=False)
+    is_client = forms.NullBooleanSelect()
  #   rate = forms.FloatField()
  #   number_of_goods = forms.IntegerField(widget=forms.widgets.NumberInput())
- #   desired_date = forms.DateField(widget=forms.widgets.DateInput())
+    desired_date = forms.DateField(widget=forms.widgets.DateInput())
  #   choice = forms.ChoiceField(choices=(('f', 'first'), ('s', 'second')))
 
     class Meta:
@@ -35,3 +34,7 @@ class UserRegistrationForm(forms.ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=50)
     password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = User
+        fields = '__all__'
