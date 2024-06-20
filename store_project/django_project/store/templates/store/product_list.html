@@ -1,0 +1,9 @@
+{% block title %}Список продуков{% endblock %}
+
+{% block content %}
+    <h1>Продукты</h1>
+    {% for product in object_list %}
+    <p><a href="{% url 'product_detail' pk=product.pk %}">{{ product.category }}</a></p>
+    <p>-----</p>
+    {% endfor %}
+{% endblock %}
